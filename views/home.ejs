@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Réservation</title>
+    <script>
+        function calculate(){
+            places_nb = document.getElementById("nbseat").value;
+            let total = 0
+            if ((document.getElementById("assurance")).checked) {
+                total = places_nb*45 + 20 
+            }
+            else
+            {
+                total = places_nb*45
+            }
+
+            console.log(total);
+            document.getElementById("total").innerHTML= "Total de la réservation: " + total;
+                
+            }
+        
+    </script>
+
+</head>
+<body>
+    <div id="content">
+        <h1>Réservation</h1>
+        <form method="POST" id="form1" action="/registerTravelers">
+            <div>
+                <label for="destination">Destination</label>
+                <input type="text" name="destination" required>
+            </div>
+                    <div>
+                <label for="nbseat">Nombre de places</label>
+                <input type="number" name="nbseat" id="nbseat" required>
+            </div>
+            <div>
+                <label for="assurance">Assurance</label>
+                <input type="checkbox" name="assurance" id="assurance" >
+                </radio>
+            </div>
+            <div>
+                <input type="submit" value="Etape suivante">
+            </div>
+        </form>
+        <button onclick="calculate()" id="bt_total">Calculer le total</button>
+        <div id="total"></div>
+    </div>
+    <script src="util.js"></script>
+</body>
+</html>
